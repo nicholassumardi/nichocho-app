@@ -14,7 +14,8 @@
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
         }
 
-        .fadeContent {
+        .fadeContent,
+        .endingContent {
             margin: 0;
             padding: 0;
             width: 100%;
@@ -48,6 +49,13 @@
         <p class="fs-1 text-white fw-bold">Hello, my dearest Yolanda Agustin ❤️</p>
     </div>
 
+    <div id="endingContent" class="endingContent text-center d-none">
+        <p class="fs-1 text-white fw-bold">You're doing great, baby. Don't blame yourself for anything i know you're
+            already giving your best.
+            <br>
+            I love you so much ❤️
+        </p>
+    </div>
     <div class="container text-center d-none" id="mainContent">
         <div class="row">
             <div class="col">
@@ -163,6 +171,13 @@
         $("#mainButton").addClass('d-none');
         $("#mainTitle").html('Yeay ❤️❤️❤️');
         $("#mainImage").attr("src", "{{ asset('val/yes.jpeg') }}");
+       
+        setTimeout(function () {
+        $("#mainContent").fadeOut(2000, function () {
+            $('#musicContainer').html(``);
+            $("#endingContent").removeClass('d-none').hide().fadeIn(2000);
+        });
+    }, 3000);
     });
 
 </script>
